@@ -294,3 +294,34 @@ end)
 DSection:NewButton("InfiniteYield", "InfiniteYield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
+
+local Acts = true
+
+DSection:NewToggle("Spam All Actives", "Spams all Actives", function(State)
+Acts = State
+
+while Acts and wait(0.1) do
+local args = {
+[1] = "UseItem",
+[2] = 1,
+[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+
+local args = {
+[1] = "UseItem",
+[2] = 2,
+[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+
+local args = {
+[1] = "UseItem",
+[2] = 3,
+[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
+} 
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+end
+end)
