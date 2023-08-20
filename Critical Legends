@@ -366,3 +366,14 @@ end)
 DSection:NewButton("InfiniteYield", "InfiniteYield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
+
+DSection:NewButton("Open all chests", "Opens all the chests", function()
+    local Chests = workspace:FindFirstChild("Chests"):GetDescendants()
+local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+for i,v in pairs (Chests) do
+if v.Name == "TouchInterest" and v.Parent.Name == "Giver" and v.Parent.Parent.Parent.Name == "Chests" and v.Parent.Parent.Parent:IsA("Folder") then
+firetouchinterest(HRP,v.Parent,0)
+firetouchinterest(HRP,v.Parent,1)
+end
+end
+end)
