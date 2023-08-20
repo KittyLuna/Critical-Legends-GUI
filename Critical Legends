@@ -113,6 +113,16 @@ while Mats and wait(0.1) do
 end)
 end)
 
+BSection:NewButton("Teleport To A Blue Star", "Teleports you to a blue star if it exists", function()
+local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
+local WorkspaceD = workspace:GetDescendants()
+   for i,v in next, WorkspaceD do 
+      if v.Parent.Name == "Models" and v.Name == "BlueStar" and v.Parent.Parent.Parent == workspace then
+         HRP.CFrame = v.CFrame
+      end
+   end
+end)
+
 BSection:NewButton("Teleport To A Star", "Teleports you to a star if it exists", function()
 local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
 local WorkspaceD = workspace:GetDescendants()
@@ -182,7 +192,7 @@ table.insert(ArsenalTab,"Void")
 table.insert(ArsenalTab,"Land Under The Waterfall")
 table.sort(ArsenalTab)
 
-CSection:NewDropdown("Teleport to Arsenal", "Teleports you to the arsenal selected", ArsenalTab, function(CurrentOption)
+CSection:NewDropdown("Teleport to Arsenal", "Teleports you to the selected arsenal", ArsenalTab, function(CurrentOption)
     local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
     if CurrentOption == "Land Under The Waterfall" then
         HRP.CFrame = CFrame.new(-19912,-110,-6258)
@@ -231,6 +241,24 @@ local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hum
     end
 end)
 
+CSection:NewButton("Teleport to Blackmarket", "Teleports the player to blackmarket", function()
+    local BlackMarket = workspace:FindFirstChild("Stalls"):FindFirstChild("Black Market"):GetDescendants()
+for i,v in pairs(BlackMarket) do
+if v.Name == "Grani" and v.Parent.Parent.Name == "Grani" then
+	local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+HRP.CFrame = v.CFrame
+end
+end)
+
+CSection:NewButton("Teleport to Vanessa", "Teleports the player to Vanessa(bluemoon fairy)", function()
+    local fairy = workspace:FindFirstChild("Vanessa")
+if fairy then
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HRP = Character:FindFirstChild("HumanoidRootPart")
+HRP.CFrame = fairy.HumanoidRootPart.CFrame
+end
+end)
 
 local Players = game:GetService("Players"):GetChildren()
 local onJoinList = {}
