@@ -95,6 +95,43 @@ task.spawn(function()
 end)
 end)
 
+local Acts = true
+
+ASection:NewToggle("Spam All Actives", "Spams all Actives", function(State)
+Acts = State
+
+while Acts and wait() do
+local args = {
+[1] = "UseItem",
+[2] = 1,
+[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+
+local args = {
+[1] = "UseItem",
+[2] = 2,
+[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+
+local args = {
+[1] = "UseItem",
+[2] = 3,
+[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
+} 
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+end
+end)
+
+ASection:NewButton("AntiAFK", "You will not get disconnected for idling", function()
+for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+   v:Disable()
+end
+end)
+
 local BTab = Window:NewTab("Fruits/Trees/Pickups")
 local BSection = BTab:NewSection("Fruits/Trees/Pickups")
 
@@ -326,41 +363,4 @@ end)
 
 DSection:NewButton("InfiniteYield", "InfiniteYield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
-
-local Acts = true
-
-DSection:NewToggle("Spam All Actives", "Spams all Actives", function(State)
-Acts = State
-
-while Acts and wait() do
-local args = {
-[1] = "UseItem",
-[2] = 1,
-[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
-
-local args = {
-[1] = "UseItem",
-[2] = 2,
-[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
-
-local args = {
-[1] = "UseItem",
-[2] = 3,
-[3] = { ["MouseHit"] = Vector3.new(-46,50,43)}
-} 
-game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
-end
-end)
-
-DSection:NewButton("AntiAFK", "You will not get disconnected for idling", function()
-for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
-   v:Disable()
-end
 end)
