@@ -144,6 +144,7 @@ spawn(function()
 while Mats and wait(0.1) do
            local Character = Player.Character or Player.CharacterAdded:Wait()
            local HRP = Character:FindFirstChild("HumanoidRootPart")
+if not HRP then continue end
         for i,v in pairs(MaterialGivers:GetDescendants()) do
             if v:IsA("BasePart") and v.Parent.Parent.Parent == MaterialGivers then
                firetouchinterest(HRP,v,0)
@@ -376,4 +377,26 @@ firetouchinterest(HRP,v.Parent,0)
 firetouchinterest(HRP,v.Parent,1)
 end
 end
+end)
+
+local BlubbToggle = true
+
+DSection:NewToggle("Buy Blubb's Pizza", "Automatically buys blubb's pizza", function(State)
+BlubbToggle = State
+spawn(function()
+while BlubbToggle and wait() do
+local Gold = game:GetService("Players"):FindFirstChild("leaderstats"):FindFirstChild("Gold")
+if Gold.Value > 12500 then
+local args = {
+[1] = "Buy5", [2]=workspace:WaitForChild("Stalls"):WaitForChild("Initus Bay"):WaitForChild("Item Shop"):WaitForChild("Shop"):WaitForChild("Blubb Pizza")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Effected"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Effected"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Effected"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Effected"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Effected"):FireServer(unpack(args))
+end
+end
+end)
 end)
