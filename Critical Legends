@@ -381,7 +381,7 @@ end)
 
 local BlubbToggle = true
 
-DSection:NewToggle("Buy Blubb's Pizza", "Automatically buys blubb's pizza", function(State)
+DSection:NewToggle("Autobuy Blubb's Pizza", "Automatically buys blubb's pizza", function(State)
 BlubbToggle = State
 spawn(function()
 while BlubbToggle and wait() do
