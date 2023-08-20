@@ -385,7 +385,7 @@ DSection:NewToggle("Buy Blubb's Pizza", "Automatically buys blubb's pizza", func
 BlubbToggle = State
 spawn(function()
 while BlubbToggle and wait() do
-local Gold = game:GetService("Players"):FindFirstChild("leaderstats"):FindFirstChild("Gold")
+local Gold = game:GetService("Players").LocalPlayer:FindFirstChild("leaderstats"):FindFirstChild("Gold")
 if Gold.Value > 12500 then
 local args = {
 [1] = "Buy5", [2]=workspace:WaitForChild("Stalls"):WaitForChild("Initus Bay"):WaitForChild("Item Shop"):WaitForChild("Shop"):WaitForChild("Blubb Pizza")
