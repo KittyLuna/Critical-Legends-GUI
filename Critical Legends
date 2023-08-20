@@ -358,3 +358,9 @@ local args = {
 game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
 end
 end)
+
+DSection:NewButton("AntiAFK", "You will not get disconnected for idling", function()
+for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+   v:Disable()
+end
+end)
