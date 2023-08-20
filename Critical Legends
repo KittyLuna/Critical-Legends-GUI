@@ -233,7 +233,7 @@ table.insert(ArsenalTab,"Void")
 table.insert(ArsenalTab,"Land Under The Waterfall")
 table.sort(ArsenalTab)
 
-CSection:NewDropdown("Teleport to Arsenal", "Teleports you to the selected arsenal", ArsenalTab, function(CurrentOption)
+CSection:NewDropdown("Teleport To Arsenal", "Teleports you to the selected arsenal", ArsenalTab, function(CurrentOption)
     local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
     if CurrentOption == "Land Under The Waterfall" then
         HRP.CFrame = CFrame.new(-19912,-110,-6258)
@@ -263,7 +263,7 @@ table.insert(NPCs,"Gem (Crystalized)")
 table.insert(NPCs,"Avatar of Radismus (Blood Wipe)")
 
 
-CSection:NewDropdown("Teleport to Chosen Relic NPC", "Teleports you to the chosen Relic NPC", NPCs, function(CurrentOption)
+CSection:NewDropdown("Teleport To Chosen Relic NPC", "Teleports you to the chosen Relic NPC", NPCs, function(CurrentOption)
 local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
     if CurrentOption == "Bottle of ??? (Hunter)" then HRP.CFrame = CFrame.new(-1040.1, 195.214, -4722.89)
     elseif CurrentOption == "Blind Grillby (Burning Head)" then HRP.CFrame = CFrame.new(156.598, 162.562, -2334.68)
@@ -284,7 +284,7 @@ local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hum
     end
 end)
 
-CSection:NewButton("Teleport to Blackmarket", "Teleports the player to blackmarket", function()
+CSection:NewButton("Teleport To Blackmarket", "Teleports the player to blackmarket", function()
     local BlackMarket = workspace:FindFirstChild("Stalls"):FindFirstChild("Black Market"):GetDescendants()
 for i,v in pairs(BlackMarket) do
 if v.Name == "Grani" and v.Parent.Parent.Name == "Grani" then
@@ -294,7 +294,7 @@ end
 end
 end)
 
-CSection:NewButton("Teleport to Vanessa", "Teleports the player to Vanessa(bluemoon fairy)", function()
+CSection:NewButton("Teleport To Vanessa", "Teleports the player to Vanessa(bluemoon fairy)", function()
 local fairy = workspace:FindFirstChild("Vanessa")
 if fairy ~= nil then
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -316,7 +316,7 @@ for i,v in pairs(Players) do
     end
 end
 
-local dropdown = CSection:NewDropdown("Teleport to Player", "Teleports you to the player selected", onJoinList, function(CurrentOption)
+local dropdown = CSection:NewDropdown("Teleport To Player", "Teleports you to the player selected", onJoinList, function(CurrentOption)
 local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
 local Players = game:GetService("Players"):GetChildren()
    for i,v in next, Players do 
@@ -367,7 +367,7 @@ DSection:NewButton("InfiniteYield", "InfiniteYield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 
-DSection:NewButton("Open all chests", "Opens all the chests", function()
+DSection:NewButton("Open all Chests", "Opens all the chests", function()
     local Chests = workspace:FindFirstChild("Chests"):GetDescendants()
 local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 for i,v in pairs (Chests) do
