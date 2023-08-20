@@ -78,16 +78,18 @@ task.spawn(function()
     while Tp and wait(0.1) do
 	local MyFol
         local CombatFolder = workspace:FindFirstChild("CombatFolder")
-        if CombatFolder ~= nil then
+        if CombatFolder ~= nil and CombatFolder:FindFirstChild(Player.Name) then
 	    local Player = game:GetService("Players").LocalPlayer	
             local Character = Player.Character or Player.CharacterAdded:Wait()
             local HRP = Character:FindFirstChild("HumanoidRootPart")
             MyFol = CombatFolder:FindFirstChild(Player.Name):GetDescendants()
+	    if MyFol then
             for i,v in pairs(MyFol) do
                 if v:IsA("BasePart") and v.Name == "HitBox" or v.Name == "Base" then
                     HRP.CFrame = v.CFrame
                 end
             end
+	end
         end
     end
 end)
