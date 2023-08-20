@@ -248,6 +248,7 @@ if v.Name == "Grani" and v.Parent.Parent.Name == "Grani" then
 	local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 HRP.CFrame = v.CFrame
 end
+end
 end)
 
 CSection:NewButton("Teleport to Vanessa", "Teleports the player to Vanessa(bluemoon fairy)", function()
