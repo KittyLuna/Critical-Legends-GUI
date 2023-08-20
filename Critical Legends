@@ -245,6 +245,7 @@ CSection:NewDropdown("Teleport to Arsenal", "Teleports you to the selected arsen
 end)
 
 local NPCs = {}
+table.insert(NPCs,"Smile (Hyper)")
 table.insert(NPCs,"Bottle of ??? (Hunter)")
 table.insert(NPCs,"Blind Grillby (Burning Head)")
 table.insert(NPCs,"Cursed Altar (Cursed)")
@@ -279,6 +280,7 @@ local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hum
     elseif CurrentOption == "Jeff (Berserk)" then HRP.CFrame = CFrame.new(311.894, 66.9847, -1380.45)
     elseif CurrentOption == "Gem (Crystalized)" then HRP.CFrame = CFrame.new(681.1, 34.6, -1334.6)
     elseif CurrentOption == "Avatar of Radismus (Blood Wipe)" then HRP.CFrame = CFrame.new(5230.36, 384.857, 1645.1)
+    elseif CurrentOption == "Smile (Hyper)" then HRP.CFrame = CFrame.new(-1201, -123, 2573)
     end
 end)
 
