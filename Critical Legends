@@ -252,8 +252,8 @@ end
 end)
 
 CSection:NewButton("Teleport to Vanessa", "Teleports the player to Vanessa(bluemoon fairy)", function()
-    local fairy = workspace:FindFirstChild("Vanessa")
-if fairy then
+local fairy = workspace:FindFirstChild("Vanessa")
+if fairy ~= nil then
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local HRP = Character:FindFirstChild("HumanoidRootPart")
