@@ -329,7 +329,7 @@ local Acts = true
 DSection:NewToggle("Spam All Actives", "Spams all Actives", function(State)
 Acts = State
 
-while Acts and wait(0.1) do
+while Acts and wait() do
 local args = {
 [1] = "UseItem",
 [2] = 1,
