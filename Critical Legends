@@ -448,3 +448,47 @@ end
 end
 end)
 end)
+
+local FTab = Window:NewTab("Stats")
+local FSection = FTab:NewSection("Stats")
+
+
+FSection:NewButton("Auto Damage Stat", "Adds +1 to Damage repeatedly", function()
+while wait() do
+	local args = {[1]="Invest",[2]="Damage",[3]=1}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+end
+end)
+
+FSection:NewButton("Auto Health Stat", "Adds +1 to Health repeatedly", function()
+while wait() do
+	local args = {[1]="Invest",[2]="Health",[3]=1}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+end
+end)
+
+FSection:NewButton("Auto Magic Stat", "Adds +1 to Magic repeatedly", function()
+while wait() do
+	local args = {[1]="Invest",[2]="Magic",[3]=1}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+end
+end)
+
+FSection:NewButton("Auto Mana Stat", "Adds +1 to Mana repeatedly", function()
+while wait() do
+	local args = {[1]="Invest",[2]="Mana",[3]=1}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+end
+end)
+
+FSection:NewButton("Auto Shield Stat", "Adds +1 to Shield repeatedly", function()
+while wait() do
+	local args = {[1]="Invest",[2]="Shield",[3]=1}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
+end
+end) 
