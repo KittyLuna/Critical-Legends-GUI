@@ -285,6 +285,53 @@ local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hum
     end
 end)
 
+local NPCTable = {}
+local NPCFol = workspace.QuestNPCs:GetDescendants()
+table.insert(NPCTable,"Grani")
+table.insert(NPCTable,"King Blubb")
+
+for i,v in pairs(NPCFol) do
+if v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") then
+if not table.find(NPCTable,v.Parent.Name) then
+table.insert(NPCTable,v.Parent.Name)
+end
+end
+end
+
+CSection:NewDropdown("Teleport To QuestNPC (Grani/Blubb too)", "Teleports you to the chosen Quest NPC", NPCTable, function(CurrentOption)
+local Player = game:GetService("Players").LocalPlayer 
+local Character = Player.Character or Player.CharacterAdded:Wait()
+HRP = Player.Character:FindFirstChild("HumanoidRootPart")
+if HRP then
+	if CurrentOption == "Grani" then
+		HRP.CFrame = CFrame.new(6737.32, 144.011, 9794.26)
+	elseif CurrentOption == "King Blubb" then
+		HRP.CFrame = CFrame.new(-3723.83, 431.422, -5055.45)
+	else  HRP.CFrame = workspace.QuestNPCs:FindFirstChild(CurrentOption).HumanoidRootPart.CFrame
+	end
+end
+end)
+
+local StatuesFol = workspace.Statues:GetDescendants()
+local StatuesTable = {}
+
+for i,v in pairs(StatuesFol) do
+if v.Name == "ProximityPrompt" and v.Parent.Name == "Attachment" then
+if not table.find(StatuesTable,v.Parent.Parent.Parent.Name) then
+table.insert(StatuesTable,v.Parent.Parent.Parent.Name)
+end
+end
+end
+
+CSection:NewDropdown("Teleport To Class Statue", "Teleports you to the chosen Class Statue", StatuesTable, function(CurrentOption)
+local Player = game:GetService("Players").LocalPlayer 
+local Character = Player.Character or Player.CharacterAdded:Wait()
+HRP = Player.Character:FindFirstChild("HumanoidRootPart")
+
+if not HRP then continue end
+HRP.CFrame = workspace.Statues:FindFirstChild("ProximityPrompt", true).Parent.Parent.CFrame
+end)
+
 CSection:NewButton("Teleport To Blackmarket", "Teleports the player to blackmarket", function()
     local BlackMarket = workspace:FindFirstChild("Stalls"):FindFirstChild("Black Market"):GetDescendants()
 for i,v in pairs(BlackMarket) do
