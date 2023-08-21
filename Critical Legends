@@ -175,6 +175,16 @@ local WorkspaceD = workspace:GetDescendants()
    end
 end)
 
+BSection:NewButton("Teleport To Meteorite", "Teleports you to the meteorite", function()
+local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
+local WorkspaceD = workspace:GetDescendants()
+   for i,v in next, WorkspaceD do 
+      if v.Parent.Name == "Sonus Cave" and v.Name == "prox" and v.Parent.Parent.Parent == workspace then
+         HRP.CFrame = v.CFrame
+      end
+   end
+end)
+
 BSection:NewButton("Teleport To A Graveshard Grave", "Teleports you to a Grave if it exists (Mining Pickaxe)", function()
 local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
 local WorkspaceD = workspace:GetDescendants()
