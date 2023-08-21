@@ -285,7 +285,7 @@ local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hum
     end
 end)
 
-local NPCTable = {}
+--[[local NPCTable = {}
 local NPCFol = workspace.QuestNPCs:GetDescendants()
 table.insert(NPCTable,"Grani")
 table.insert(NPCTable,"King Blubb")
@@ -310,9 +310,9 @@ if HRP then
 	else  HRP.CFrame = workspace.QuestNPCs:FindFirstChild(CurrentOption).HumanoidRootPart.CFrame
 	end
 end
-end)
+end)]]
 
---[[local StatuesFol = workspace.Statues:GetDescendants()
+local StatuesFol = workspace.Statues:GetDescendants()
 local StatuesTable = {}
 
 for i,v in pairs(StatuesFol) do
@@ -331,7 +331,7 @@ HRP = Player.Character:FindFirstChild("HumanoidRootPart")
 if HRP then
 HRP.CFrame = workspace.Statues:FindFirstChild("ProximityPrompt", true).Parent.Parent.CFrame
 end
-end)]]
+end)
 
 CSection:NewButton("Teleport To Blackmarket", "Teleports the player to blackmarket", function()
     local BlackMarket = workspace:FindFirstChild("Stalls"):FindFirstChild("Black Market"):GetDescendants()
