@@ -285,7 +285,7 @@ local HRP = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hum
     end
 end)
 
---[[local NPCTable = {}
+local NPCTable = {}
 local NPCFol = workspace.QuestNPCs:GetDescendants()
 table.insert(NPCTable,"Grani")
 table.insert(NPCTable,"King Blubb")
@@ -310,7 +310,7 @@ if HRP then
 	else  HRP.CFrame = workspace.QuestNPCs:FindFirstChild(CurrentOption).HumanoidRootPart.CFrame
 	end
 end
-end)]]
+end)
 
 local StatuesFol = workspace.Statues:GetDescendants()
 local StatuesTable = {}
