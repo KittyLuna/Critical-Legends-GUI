@@ -177,12 +177,9 @@ end)
 
 BSection:NewButton("Teleport To Meteorite", "Teleports you to the meteorite", function()
 local HRP = Player.Character:FindFirstChild("HumanoidRootPart")
-local WorkspaceD = workspace.WorldMap:GetDescendants()
-   for i,v in next, WorkspaceD do 
-      if v.Name == "ProximityPrompt" and v.Parent.Name = "prox" and v.Parent.Parent:IsA("Model") and v.Parent.Parent.Name == "Meteorite" then
-         HRP.CFrame = v.CFrame
-      end
-   end
+if HRP then
+    HRP.CFrame = CFrame.new(-427, 232.5, -414)
+end
 end)
 
 BSection:NewButton("Teleport To A Graveshard Grave", "Teleports you to a Grave if it exists (Mining Pickaxe)", function()
