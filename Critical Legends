@@ -328,8 +328,9 @@ local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character or Player.CharacterAdded:Wait()
 HRP = Player.Character:FindFirstChild("HumanoidRootPart")
 
-if not HRP then continue end
+if HRP then
 HRP.CFrame = workspace.Statues:FindFirstChild("ProximityPrompt", true).Parent.Parent.CFrame
+end
 end)
 
 CSection:NewButton("Teleport To Blackmarket", "Teleports the player to blackmarket", function()
