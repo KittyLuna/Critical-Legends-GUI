@@ -136,17 +136,18 @@ local BTab = Window:NewTab("Fruits/Trees/Pickups")
 local BSection = BTab:NewSection("Fruits/Trees/Pickups")
 
 local Mats = true
-local MaterialGivers = game:GetService("Workspace"):FindFirstChild("MaterialGivers")
+local MaterialGivers = game:GetService("Workspace"):FindFirstChild("MaterialGivers"):GetDescendants()
 
 BSection:NewToggle("Gather Fruits", "Automatically gathers all fruits/trees", function(State)
     Mats = State
 spawn(function()
 while Mats and wait(0.1) do
+	local Player = game:GetService("Players").LocalPlayer
            local Character = Player.Character or Player.CharacterAdded:Wait()
            local HRP = Character:FindFirstChild("HumanoidRootPart")
      if HRP then
-        for i,v in pairs(MaterialGivers:GetDescendants()) do
-            if v:IsA("BasePart") and v.Parent.Parent.Parent == MaterialGivers then
+        for i,v in pairs(MaterialGivers) do
+            if v:IsA("BasePart") and v.Parent.Parent.Parent.Name == "MaterialGivers" then
                firetouchinterest(HRP,v,0)
                firetouchinterest(HRP,v,1)
             end
@@ -462,41 +463,51 @@ local FSection = FTab:NewSection("Stats")
 
 
 FSection:NewButton("Auto Damage Stat", "Adds +1 to Damage repeatedly", function()
+spawn(function()
 while wait() do
 	local args = {[1]="Invest",[2]="Damage",[3]=1}
 
 game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
 end
 end)
+end)
 
 FSection:NewButton("Auto Health Stat", "Adds +1 to Health repeatedly", function()
+spawn(function()
 while wait() do
 	local args = {[1]="Invest",[2]="Health",[3]=1}
 
 game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
 end
 end)
+end)
 
 FSection:NewButton("Auto Magic Stat", "Adds +1 to Magic repeatedly", function()
+spawn(function()
 while wait() do
 	local args = {[1]="Invest",[2]="Magic",[3]=1}
 
 game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
 end
 end)
+end)
 
 FSection:NewButton("Auto Mana Stat", "Adds +1 to Mana repeatedly", function()
+spawn(function()
 while wait() do
 	local args = {[1]="Invest",[2]="Mana",[3]=1}
 
 game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
 end
 end)
+end)
 
 FSection:NewButton("Auto Shield Stat", "Adds +1 to Shield repeatedly", function()
+spawn(function()
 while wait() do
 	local args = {[1]="Invest",[2]="Shield",[3]=1}
 
 game:GetService("ReplicatedStorage"):WaitForChild("Server"):FireServer(unpack(args))
 end
 end) 
+end)
