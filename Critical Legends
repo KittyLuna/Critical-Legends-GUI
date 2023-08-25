@@ -362,6 +362,16 @@ HRP.CFrame = fairy.HumanoidRootPart.CFrame
 end
 end)
 
+CSection:NewButton("Teleport To Harvestia", "Teleports the player to Harvestia", function()
+local fairy = workspace:FindFirstChild("Harvestia")
+if fairy ~= nil then
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HRP = Character:FindFirstChild("HumanoidRootPart")
+HRP.CFrame = fairy.HumanoidRootPart.CFrame
+end
+end)
+
 local Players = game:GetService("Players"):GetChildren()
 local onJoinList = {}
 local updateList = {}
